@@ -1,0 +1,232 @@
+<!Doctype html>
+<html lang="en">
+	<head>
+		<!-- Meta tags for responsiveness -->
+		<meta name="author" content="Abhishek reddy chitti">
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		
+		<!-- all css files -->
+		<link rel="stylesheet" href="bootstrap/bootstrap.min.css">
+		<link rel="stylesheet" href="./css/fontawesome-free-5.13.1-web/css/all.css">
+		<link rel="stylesheet" type="text/css" href="fonts/font.css">
+		<!-- custom css file -->
+		<link rel="stylesheet" type="text/css" href="css/customStyling.css">
+			
+		<!-- scripts for required by bootstrap --> 
+		<script src="bootstrap/jquery.min.js"></script>
+		<script src="bootstrap/popper.min.js"></script>
+		<script src="bootstrap/bootstrap.min.js"></script>
+
+		<!-- scripts -->
+		<script type="text/javascript">
+			<!--jquery to bootstrap tooltips-->
+			$(document).ready(function(){
+			  $('[data-toggle="popover"]').popover();
+			})();
+			
+			<!-- used for visual changes on links, to change colors -->
+			function chngBgColor(x) {
+				if(x.style.color=="lawngreen") {
+					x.style.color="white";
+				}
+				else {
+					x.style.color="lawngreen";
+				}
+			}
+			
+			<!-- used to change display property of some components-->
+			function search() {
+				let x=document.getElementById("search");
+
+				if (x.style.display === "none" ) {
+					x.style.display = "block";
+				} 
+				else {
+					x.style.display = "none";
+				}
+			}
+			
+			<!-- form reset funciton-->
+			function formReset(x) {
+			document.getElementById(x).reset();
+			}
+		</script>
+	</head>
+
+	<body>
+		<!--------start of navbar--------->
+		
+		<!--This navbar is placed in a container to allign the body center of the screen avoiding the navbar and footer background to spread.
+			used bootstrap for the collapsible to pop,when screen size is small.Involves intermittent usage of javascript for visual changes.
+			used bootstrap navbar,dropdowns,topography,positioning classes----------------------------------------------------------------->
+			
+			<nav class="navbar sticky-top navbar-expand-lg font-weight-light" style="background-color:#1a5336;height=10%;font-size:15px">
+				<div class="container">	
+					<a class="mr-5 navbar-brand text-white font-weight-bold" href="#"> 
+					<button class="navbar-toggler navbar-toggler-right custom-toggler bg-transparent navbar-light"  type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+					<span class="navbar-toggler-icon"></span></button>
+					<img src="./images/td-logo.png"/ height="43px" width="49px" class="mr-4">    TD Insurance
+					</a>
+
+				   <div class="collapse navbar-collapse" id="collapsibleNavbar">
+						<ul class="navbar-nav">
+						  <li class="nav-item"><a class="nav-link mr-2 text-white " href="#Products">Products</a></li>
+						  <li class="nav-item"><a class="nav-link mr-2 text-white " href="#Claims">Claims</a></li>
+						  <li class="nav-item"><a class="nav-link text-white " style="white-space:nowrap;" href="#Contact Us">Contact Us</a></li>
+						</ul>						
+						
+						<ul class="d-flex navbar-nav mr-4 ml-auto mt-3">
+							<li class="nav-item mr-3">
+								<div class="dropdown ">
+									<p  class=" dropdown-toggle text-white mr-auto" data-toggle="dropdown">Ontario</p>
+									<div class="dropdown-menu">
+										<a class="dropdown-item nav-link" href="#">Link 1</a>
+										<a class="dropdown-item nav-link" href="#">Link 2</a>
+										<a class="dropdown-item nav-link" href="#">Link 3</a>
+									</div>
+								</div>
+							</li>
+
+							<li class="nav-item mr-3">
+							 <div class="dropdown">
+								  <p class="dropdown-toggle text-white" data-toggle="dropdown">EN</p>
+								   <div class="dropdown-menu">
+										<a class="dropdown-item nav-link" href="#">Link 1</a>
+										<a class="dropdown-item nav-link" href="#">Link 2</a>
+										<a class="dropdown-item nav-link" href="#">Link 3</a>
+								   </div>
+							 </div>
+							</li>
+
+							<li class="mr-3" >
+								<div>
+								  <a><i class="fa fa-search text-white" onclick="search()" aria-hidden="true"></i></a>
+								</div>
+							</li> 
+						</ul>			
+
+						<div> 
+						  <form method="post" class="form-inline" id="search" style="display:none;" target="_blank">
+								<input class="form-control col-lg-5 h-25 mt" type="text"/>
+						  </form>
+						</div>
+					</div>	  
+					<a href="#" class="text-white" style="text-decoration:none;">
+						<img src="./images/lock-xxl.png"  class="mb-1" height="15px" width="15px"/> Login
+					</a>
+				</div>
+			</nav>
+		<!------- end of navbar part --------------->
+		<!-------start of body content-------------->
+		
+		<!---- The body too is placed in a bootstrap container for the uniform look of the page and involves usage of grid system of bootstrap to wrap and rearrange elments based
+		on the screen sizes(sm,md,large)-----> 
+
+		<div class="container row m-3 ml-auto mr-auto" id="body">
+			<div class="col-md-9">
+				<div class="mt-3 mb-5">
+					<h5 class="text-muted mb-4 sm-center">Tell Us About Yourself</h5>
+					<p style="font-weight:500;">Thanks for choosing TD insurance! In order to safely set up your accounts and services, please tell us about yourself</p>
+				</div>
+
+				<form action="#post" method="post" id="td-form">
+					<div class="form-group d-inline">
+							<h5 class="text-secondary mb-5 sm-center">Personal Information</h5>
+							 <select class="d-inline mr-2 mb-2 mb-lg-5 col-lg-2 col-md-3 col-sm-12 form-control"id="cars" name="Title" required>
+								<option value="" disabled selected>Title*</option>
+								<option value="mr">Mr.</option>
+								<option value="mrs">Mrs.</option>
+								<option value="ms">Ms.</option>
+							 </select>
+							<input  class="d-inline mr-2 mb-2 mb-lg-5 mr-md-2 ml-md-1 col-lg-3 col-md-4 col-sm-12 form-control" type="text" placeholder="First Name*" required/>
+							<input class="d-inline mr-2 mb-2  mb-lg-5 col-lg-3 col-md-4 col-sm-12 form-control" type="text" placeholder="Middle Initial*" required/>
+							<input class="d-inline mr-2  mb-2  mb-lg-5 col-lg-3 col-md-12 col-sm-12 form-control" type="text" placeholder="Last Name*" required/>
+							<span class="tooltips d-md-inline mr-2">
+								<input class="d-inline-flex mr-1 mb-2  col-lg-3 col-md-6 col-sm-12 form-control" type="email" placeholder="Email address*" required>
+								</input>
+								<a href="" style="color:black;" onclick="return false"  data-toggle="popover" title="Email" data-content="test@test.com">
+									<i class="mt-3 fa fa-question-circle" aria-hidden="true">
+									</i>
+								</a>
+							</span>
+						<input class="d-inline mb-2  col-lg-3 col-md-5 col-sm-12 form-control" type="text" onfocus="(this.type='date')" placeholder="Date of Birth*" required/>
+						<span class="tooltips">
+							<input class="d-inline-flex mb-2 mr-1 col-lg-4 col-md-12 col-sm-12 form-control" type="text" pattern="[0-9]+" minlength="10" maxlength="10" placeholder="Social Insurance Number*" required>
+								<a href="" style="color:black;" onclick="return false" data-toggle="popover" title="Social Insurance Number" data-content="SIN is 10 digits.Please enter without hyphens">
+									<i class="mt-3 fa fa-question-circle" aria-hidden="true">
+									</i>
+								</a>
+							</input>
+						</span>
+					</div>
+					
+					<br/> 		<!------******this break is for arranging the form submission and cancellation button*****------>
+					<div class="float-right mt-3">
+						<input class="mr-2 mb-3 btn btn-sm btn-danger"  onclick="formReset('td-form')" type="button" value="Cancel"/>
+						<input  class="mr-2 mb-3 btn btn-sm btn-success "  type="submit" value="Submit"/>
+					</div>
+				</form>
+			</div>
+
+			<div class="col-md-3">
+				<p>You are applying for:</p>
+				<p class="text-secondary">TD&#174; Travel Medical Insurance</p>
+				<a href="#more coverage options" class="btn btn-sm w-100 bg-success text-white mr-3">See More Coverage Options</a> 
+			</div>
+		</div>
+		
+		<!-------end of body content-------------->
+		<!-------start of footer------------------>
+		
+		<!---- footer was separated into 2 primary parts in order to be able to wrap seamlessly for large and small screens--->
+		<div style="background-color:#1a5336;width:100%;height:100%;overflow:auto;" class="" id="footer">
+			<div class="container" style="position:relative">
+				<div class="text-center mt-5" style="clear:both;" id="sub-footer">
+					<div id="footer_links1">
+					<span class="text-white" >Need to talk to us directly?   </span>
+					<span ><a href="#contact us" style="color:#00a221;text-decoration:none;">Contact us ></a></span>
+					</div>
+
+					<div >
+						<ul class="my-3 text-white small py-2" style="list-style:none;border-top: 1px solid #00a221; border-bottom: 1px solid #00a221;" id="footer_links2">
+							<li   class="">
+								<a href="#facebook"  onmouseover="chngBgColor(this)" onmouseout="chngBgColor(this)" style="color:white;text-decoration:none;">Privacy and Security
+								</a>
+							</li>
+							<li  class="m-3">
+								<a href="#facebook" onmouseover="chngBgColor(this)" onmouseout="chngBgColor(this)" style="color:white;text-decoration:none;">Legal
+								</a>
+							</li>
+							<li  class="m-3">
+								<a href="#facebook" onmouseover="chngBgColor(this)" onmouseout="chngBgColor(this)" style="color:white;text-decoration:none;">Accessibility
+								</a>
+							</li>
+							<li class="m-3">
+								<a href="#facebook" onmouseover="chngBgColor(this)" onmouseout="chngBgColor(this)" style="color:white;text-decoration:none;">About Us
+								</a>
+							</li>
+							<li class="m-3">
+								<a href="#facebook" onmouseover="chngBgColor(this)" onmouseout="chngBgColor(this)" style="color:white;text-decoration:none;">Careers
+								</a>
+							</li>
+						</ul>
+					</div>
+
+					<ul class="my-3 text-white small ul_footer_links3 d-inline-flex justify-content-center" style="list-style:none;">					
+						<a class="footer_links3 icon-facebook" style="text-decoration:none;" href="#"></a>
+						<a class="footer_links3 icon-twitter" style="text-decoration:none;" href="#"></a>
+						<a class="footer_links3 icon-youtube" style="text-decoration:none;" href="#"></a>
+						<a class="footer_links3 icon-rss" href="#"></a>
+					</ul>
+				</div>
+
+				<div id="chair_block">
+					<img id="chair" src="./images/tdchair.png"/>
+				</div>
+			</div>
+		</div>
+		<!-------end of footer------------------>
+		<!-------end of body-------------------->
+	</body>
+</html>

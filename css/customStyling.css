@@ -1,0 +1,141 @@
+/*setting the default font for body*/
+body { 	
+		font-family: 'weblysleek_uilight';
+		min-width: 365px; 
+	 }
+
+/* for large screen devices*/
+@media only screen and (min-width: 980px) {
+  
+	 div[id="footer_links1"] span {
+		 
+			font-size:30px;
+			white-space:pre;
+	  
+	  }
+	  
+	  ul[id="footer_links2"] li {
+		  
+		  display:inline;
+		  font-size: 17px;
+	  
+	  }	  
+	  
+	  div[id="sub-footer"] {
+		  
+			position:absolute;
+			right:20%;
+			top:10%;
+		
+	  }
+   
+}
+
+/*						for small screen devices
+involves rearranging footer on smaller screens and input fields positioning*/
+
+@media only screen and (max-width: 979px) {
+	.navbar .navbar-collapse {
+		  text-align: left;
+		  margin-bottom:30px;
+	}
+	 .sm-center {
+		  text-align:center;
+	 }
+	  
+	 div[id="chair_block"] {
+			text-align:center;
+	  
+	 }
+	  
+	  
+	 div[id="footer_links1"] span {
+			display:block;
+	 }
+	  
+	  
+	 div[id="sub-footer"] {
+			position:relative;
+			width:100%;
+			heigth:100px;
+	  }
+	 
+	span.tooltips {
+		
+			display:flex;
+			
+	}
+  
+}
+
+
+/* stylizing the input tabs*/
+.form-control { 
+
+		border-radius:0; 
+		height:35px;
+		border-top:1px solid rgb(240,240,240);
+}
+
+
+/*custom toggler icon*/
+.custom-toggler .navbar-toggler-icon {
+		
+	  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255,255,255, 1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+  
+}
+
+.custom-toggler.navbar-toggler {
+	  border-color: transparent;
+	  border-top:none;
+} 
+
+hover {
+		position:absolute;
+}
+
+
+/*  	customizations for the footer links
+involves using psuedo elements for visual changes*/
+
+.ul_footer_links3 .footer_links3:hover {
+	
+		color: #fff;
+}
+
+.ul_footer_links3 .footer_links3 {
+	
+		border-radius: 50%;
+		font-size: 32px;
+		width: 64px;
+		height: 64px;
+		position: relative;
+		border: 1px solid #00a221;
+		margin:0px 15px;
+		padding: 15px;
+		overflow: hidden;
+}
+.ul_footer_links3 .footer_links3:before {
+	
+		position: relative;
+		z-index: 1;
+	
+}
+.ul_footer_links3 .footer_links3:after {
+	
+	top:0;
+	left: 0;
+	height: 100%;
+	width: 0;
+	z-index:0;
+	transform-origin:left;
+	background-color: #00a221;
+	position: absolute;content: "";
+	
+}
+.ul_footer_links3 .footer_links3:hover:after {
+	
+	width: 100%;
+	
+}
+
